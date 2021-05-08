@@ -1,0 +1,40 @@
+#lang racket
+
+(define
+  level-0
+  '("print(\"LEVEL 0\n\")"
+    "print(\"you are in a small, empty cell\n\")"
+    "let door_exists = 0"
+    "let has_leaflet = 0"
+    "print(\"> \")"
+    "let input = read() // input from user"
+    "case \"$input$\":"
+    "\"escape\":"
+    " if $door_exists$ == 1:"
+    "  escape()"
+    " else:"
+    "  print(\"there is no door\n\")"
+    " endif"
+    "\"look\" \"look around\":"
+    " if $has_leaflet$:"
+    "  print(\"you are in a small, empty cell\n\")"
+    " else:"
+    "  print(\"you are in a small cell. there is a leaflet here\n\")"
+    " endif"
+    "\"get\" \"get leaflet\" \"pick up\" \"pick up leaflet\" \"take\" \"take leaflet\":"
+    " if $has_leaflet$:"
+    "  print(\"you are already carrying the leaflet\n\")"
+    " else:"
+    "  print(\"you pick up the leaflet\n\")"
+    "  let has_leaflet = 1"
+    " endif"
+    "\"read\" \"read leaflet\" \"look at leaflet\" \"leaflet\":"
+    " print(\"the leaflet reads:\nACTIVE DATA\nwhen a program takes input from a user it often treats it as mere information, on a level below that of the program itself. sometimes that might be a dangerous assumption. what if a program that puts text from the user between two quotes to distinguish it from the rest of the code receives input with more quotes in it? as long as the input is crafted to avoid triggering a syntax error, will it be able tell the difference?\n\")"
+    "\"quit\" \"give up\":"
+    " give_up()"
+    "default:"
+    " print(\"I didn't understand that\n\")"
+    "endcase"
+    "goto 4"))
+
+(provide level-0)
